@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#fdf8f8;
+    --bg-soft:#fffefe;
+    --card:rgba(255,255,255,0.72);
+    --text:#2f2f2f;
+    --muted:#747474;
+    --accent:#d86c6c;
+    --accent-light:#f4d8d8;
+    --border:rgba(255,255,255,.55);
+    --shadow:0 10px 35px rgba(0,0,0,.05);
+    --radius:28px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:
+    radial-gradient(circle at top left,#fff1f1 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#ffeaea 0%,transparent 30%),
+    var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.entrance{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+    radial-gradient(circle at center,#fff7f7 0%,#fdf8f8 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:1s ease;
+}
+
+.entrance.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.hero-box{
+    text-align:center;
+    padding:40px;
+}
+
+.hero-box h1{
+    font-size:clamp(2rem,5vw,4rem);
+    font-weight:600;
+    letter-spacing:-1px;
+    margin-bottom:30px;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    padding:16px 34px;
+    border-radius:999px;
+    background:white;
+    color:var(--accent);
+    font-size:1rem;
+    font-weight:600;
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:var(--accent);
+    color:white;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+.glass{
+    background:var(--card);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.section-card{
+    padding:45px;
+    border-radius:var(--radius);
+}
+
+h2{
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    margin-bottom:20px;
+    letter-spacing:-1px;
+}
+
+p{
+    line-height:1.9;
+    color:var(--muted);
+    font-size:1.05rem;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+    margin-top:35px;
+}
+
+.card{
+    padding:28px;
+    border-radius:24px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:var(--accent);
+    font-size:1.1rem;
+}
+
+.highlight{
+    margin-top:25px;
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(
+    135deg,
+    rgba(216,108,108,.08),
+    rgba(255,255,255,.8)
+    );
+}
+
+.highlight strong{
+    color:var(--accent);
+}
+
+.counter{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.time-box{
+    text-align:center;
+    padding:30px 15px;
+    border-radius:24px;
+}
+
+.number{
+    font-size:clamp(2rem,6vw,4rem);
+    font-weight:700;
+    color:var(--accent);
+}
+
+.label{
+    margin-top:10px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:.8rem;
+}
+
+footer{
+    padding:60px 20px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.top-space{
+    height:80px;
+}
+
+@media(max-width:700px){
+
+.section-card{
+    padding:28px;
+}
+
+.counter{
+    grid-template-columns:1fr;
+}
+
+.hero-box h1{
+    line-height:1.2;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="entrance" id="entrance">
+    <div class="hero-box">
+        <h1>Fiz isso aqui só para você...</h1>
+        <button class="btn" onclick="verMensagem()">
+            Ver mensagem
+        </button>
+    </div>
+</div>
+
+<div class="top-space"></div>
+
+<section class="container reveal">
+    <div class="section-card glass">
+        <h2>Como tudo começou</h2>
+
+        <p>
+            Oii Queren No dia 28 de maio de 2026 nossos caminhos se cruzaram.
+            Desde o começo deu para perceber que você era diferente.
+            A conversa encaixou de um jeito natural, sem esforço e sem
+            precisar forçar nada.
+        </p>
+
+        <br>
+
+        <p>
+            Tudo aconteceu no tempo certo, sem pressa. Aos poucos,
+            aquilo que começou como uma simples conversa foi ganhando
+            espaço na rotina. Hoje, sua companhia e a nossa parceria
+            fazem parte dos meus dias de uma forma que eu valorizo muito.
+        </p>
+    </div>
+</section>
+
+<section class="container reveal">
+    <div class="section-card glass">
+        <h2>O que eu curto em você</h2>
+
+        <div class="cards">
+
+            <div class="card glass">
+                <h3>Seu jeito carinhoso</h3>
+                <p>
+                    Gosto da forma como você trata as pessoas e demonstra
+                    cuidado nas pequenas coisas do dia a dia.
+                </p>
+            </div>
+
+            <div class="card glass">
+                <h3>Nossa conversa</h3>
+                <p>
+                    É fácil falar com você. Qualquer assunto rende boas
+                    conversas e, quando vejo, o tempo já passou voando.
+                </p>
+            </div>
+
+            <div class="card glass">
+                <h3>Seu sorriso</h3>
+                <p>
+                    Tem algo nele que consegue deixar os momentos mais leves
+                    e trazer tranquilidade mesmo nos dias corridos.
+                </p>
+            </div>
+
+            <div class="card glass">
+                <h3>Sua presença</h3>
+                <p>
+                    Estar ao seu lado transmite calma, bem-estar e uma sensação
+                    boa que é difícil explicar, mas fácil sentir.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="container reveal">
+    <div class="section-card glass">
+        <h2>Fechado contigo</h2>
+
+        <p>
+            Quero que você saiba que gosto muito de estar com você.
+            Você me faz um bem enorme e eu valorizo demais todo o carinho
+            que existe entre nós.
+        </p>
+
+        <div class="highlight">
+            <p>
+                <strong>Estou fechado com você para o que der e vier.</strong>
+                Quero estar ao seu lado tanto nos momentos felizes quanto
+                nos dias difíceis, oferecendo apoio, força e companhia
+                quando você precisar.
+            </p>
+
+            <br>
+
+            <p>
+                Também vou continuar acompanhando suas lives, torcendo pelo
+                seu sucesso, incentivando seus objetivos e cuidando de você
+                da melhor forma que eu puder.
+            </p>
+
+            <br>
+
+            <p>
+                Você é uma pessoa extremamente especial e merece saber o
+                quanto sua presença é importante.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="container reveal">
+    <div class="section-card glass">
+        <h2>Tempo desde que tudo começou</h2>
+
+        <div class="counter">
+
+            <div class="time-box glass">
+                <div class="number" id="dias">0</div>
+                <div class="label">Dias</div>
+            </div>
+
+            <div class="time-box glass">
+                <div class="number" id="horas">0</div>
+                <div class="label">Horas</div>
+            </div>
+
+            <div class="time-box glass">
+                <div class="number" id="minutos">0</div>
+                <div class="label">Minutos</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    Com carinho, de mim para você.
+</footer>
+
+<script>
+
+function verMensagem(){
+    document.getElementById("entrance").classList.add("hide");
+}
+
+const startDate = new Date("2026-05-28T00:00:00");
+
+function atualizarContador(){
+
+    const now = new Date();
+
+    let diff = now - startDate;
+
+    if(diff < 0){
+        diff = 0;
+    }
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const horas = Math.floor(
+        (diff % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutos = Math.floor(
+        (diff % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+}
+
+atualizarContador();
+setInterval(atualizarContador,1000);
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("active");
+        }
+    });
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".reveal").forEach(item=>{
+    observer.observe(item);
+});
+
+</script>
+
+</body>
+</html>
